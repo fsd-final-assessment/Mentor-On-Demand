@@ -1,0 +1,16 @@
+.training-table {
+    margin-top: 5px;
+    padding:10px;
+
+    table {
+        width: 100%;
+    }
+    tr:hover {
+        background: #efefef;
+        cursor: pointer;
+      }
+      
+      tr:active {
+        background: #efefef;
+      }
+}

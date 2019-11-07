@@ -1,0 +1,47 @@
+<h1 mat-dialog-title>New Skill</h1>
+<div mat-dialog-content>
+  <form [formGroup]="skillForm">
+    <div fxLayout="column" class="mt15" fxLayout.lt-md="column">
+      <mat-form-field>
+        <mat-label>Skill Name</mat-label>
+        <mat-select formControlName="skillId">
+            <mat-option *ngFor="let d of searchService.allSkills | async" [value]="d.id">{{d.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div fxLayout="column" class="mt15" fxLayout.lt-md="column">
+
+        <mat-label>Years of Experience(Years)</mat-label>
+        <mat-slider class="mt15" formControlName="yearsOfExp" thumbLabel tickInterval="1" step="0.5" min="1" max="30"></mat-slider>
+
+    </div>
+    <div fxLayout="column" class="mt15" fxLayout.lt-md="column">
+      <mat-form-field>
+        <mat-label>Self Rating</mat-label>
+        <mat-select formControlName="selfRating">
+          <mat-option value="1">1</mat-option>
+          <mat-option value="2">2</mat-option>
+          <mat-option value="3">3</mat-option>
+          <mat-option value="4">4</mat-option>
+          <mat-option value="5">5</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div fxLayout="column" class="mt15" fxLayout.lt-md="column">
+      <mat-form-field>
+          <mat-label>Price</mat-label>
+          <input matInput placeholder="Price" formControlName="price" id="price">
+      </mat-form-field>
+    </div>
+    <div fxLayout="column" class="mt15" fxLayout.lt-md="column">
+      <mat-form-field>
+        <mat-label>Remarks</mat-label>
+        <textarea matInput placeholder="Remarks" id="remarks" formControlName="remarks"></textarea>
+      </mat-form-field>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="doAction()" mat-flat-button color="warn">Save</button>
+  <button mat-button (click)="closeDialog()">Cancel</button>
+</div>

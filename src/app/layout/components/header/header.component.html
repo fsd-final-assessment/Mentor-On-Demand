@@ -1,0 +1,17 @@
+<header class="main-header" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center center" >
+        <button href="#" (click)="sideMenuToggle($event)" mat-icon-button  class="main-header__sidenav-toggle"><mat-icon>menu</mat-icon></button>
+        <a routerLink="/" class="main-header__logo">Mentor On Demand</a>
+        <ul class="main-header__right-menu">
+            <li *ngIf="!currentUser">
+                    <span>Visitor</span>
+                    <a mat-button [routerLink]="['/login']">Login</a>
+                </li>
+            <li *ngIf="currentUser">
+                <span>{{currentUser.roles}}</span>
+                <button href="#"  [matMenuTriggerFor]="menu" mat-icon-button color="#fff"><mat-icon>perm_identity</mat-icon></button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="onLoggedout()">Logout</button>
+                </mat-menu>
+            </li>
+        </ul>
+    </header>

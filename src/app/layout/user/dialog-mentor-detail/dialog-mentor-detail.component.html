@@ -1,0 +1,30 @@
+<h1 mat-dialog-title><strong>Mentor Detail</strong></h1>
+<div mat-dialog-content>
+    <div class="user-profile" fxLayout fxLayout.lt-sm="column" fxLayoutGap="20px" fxLayoutAlign.lt-sm="center center" fxLayoutAlign="stretch center">
+        <span  class="profile-icon"><mat-icon>perm_identity_stroked</mat-icon></span>
+        <div class="user-profile__name">
+            <h3 class="user-profile__title">{{data?.mentor?.firstName}} {{data?.mentor?.lastName}}</h3>
+            <p class="user-profile__meta">{{data?.mentor?.username}}</p>
+        </div>
+    </div>
+    <div class="user-profile-details"  fxLayoutWrap fxLayout="column">
+        <div class="user-profile-details__items " >
+            <p class="user-profile-details__paragraph">Skill:{{data?.skill?.name}}</p>
+        </div>
+        <div class="user-profile-details__items" [ngClass]="{'user-profile-details__urgent': data?.selfRating > 5}">
+            <p class="user-profile-details__paragraph">Self Rating:{{data?.selfRating}}</p>
+        </div>
+        <div class="user-profile-details__items"  >
+            <p class="user-profile-details__paragraph">TOC: {{data?.skill?.toc}}</p>
+        </div>
+        <div class="user-profile-details__items "  >
+            <p class="user-profile-details__paragraph">Prerequites:{{data?.skill?.prerequites}}</p>
+        </div>
+        <div class="user-profile-details__items"  [ngClass]="{'user-profile-details__urgent': data?.yearsOfExp > 3}">
+            <p class="user-profile-details__paragraph">Year of Expericent:{{data?.yearsOfExp}}</p>
+        </div>
+    </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="closeDialog()" >Cancel</button>
+</div>
