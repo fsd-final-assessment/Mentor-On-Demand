@@ -19,7 +19,7 @@
 </div>
 
 <ng-template #test>
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" style="flex-direction: column;">
     <div fxLayout="column" class="mt15" fxLayout.lt-md="column">
       <mat-form-field>
         <mat-label>Username</mat-label>
